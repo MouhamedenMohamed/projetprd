@@ -2,12 +2,14 @@ package com.medn.projetprd.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.medn.projetprd.models.Folder;
 import com.medn.projetprd.repositories.FolderRepository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Service
@@ -51,5 +53,31 @@ public class FolderService {
     // Get all folders
     public List<Folder> getAllFolder() {
         return folderRepository.findAll();
+    }
+
+
+    public String getFullChemin(@PathVariable Long id) {
+        Stack<String> folderNames = new Stack<>();
+
+        // Traverse the folder hierarchy and push folder names onto the stack
+        Long currentId = id;
+        while (currentId != null) {
+            folderNames.push(getFolderById(currentId).getFolderName());
+            currentId = getFolderById(currentId).getParentFolderid();
+        }
+
+        // Pop folder names from the stack to construct the reversed path
+        StringBuilder reversedPath = new StringBuilder();
+        while (!folderNames.isEmpty()) {
+            reversedPath.append('/').append(folderNames.pop());
+        }
+
+        // The first '/' might be unnecessary, so remove it
+        if (!reversedPath.isEmpty()) {
+            reversedPath.deleteCharAt(0);
+        }
+
+//	    System.out.println(reversedPath.toString());
+        return reversedPath.toString();
     }
 }

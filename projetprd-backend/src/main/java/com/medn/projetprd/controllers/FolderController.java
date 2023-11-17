@@ -32,28 +32,7 @@ public class FolderController {
 	
 	@GetMapping("/chemin/{id}")
 	public String getFullChemin(@PathVariable Long id) {
-	    Stack<String> folderNames = new Stack<>();
-
-	    // Traverse the folder hierarchy and push folder names onto the stack
-	    Long currentId = id;
-	    while (currentId != null) {
-	        folderNames.push(folderService.getFolderById(currentId).getFolderName());
-	        currentId = folderService.getFolderById(currentId).getParentFolderid();
-	    }
-
-	    // Pop folder names from the stack to construct the reversed path
-	    StringBuilder reversedPath = new StringBuilder();
-	    while (!folderNames.isEmpty()) {
-	        reversedPath.append('/').append(folderNames.pop());
-	    }
-
-	    // The first '/' might be unnecessary, so remove it
-	    if (reversedPath.length() > 0) {
-	        reversedPath.deleteCharAt(0);
-	    }
-
-//	    System.out.println(reversedPath.toString());
-	    return reversedPath.toString();
+	   return folderService.getFullChemin(id);
 	}
     
     @GetMapping("/{id}")
