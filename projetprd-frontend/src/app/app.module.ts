@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
 
 import { SignupComponent } from './components/signup/signup.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
@@ -19,7 +18,6 @@ import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     FormulaireComponent,
     SignupComponent,
      WelcomePageComponent,
