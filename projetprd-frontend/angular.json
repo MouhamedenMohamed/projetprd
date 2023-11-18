@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "projetprd-frontend": {
+    "springangular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/projetprd-frontend",
+            "outputPath": "dist/springangular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -60,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "projetprd-frontend:build:production"
+              "browserTarget": "springangular:build:production"
             },
             "development": {
-              "browserTarget": "projetprd-frontend:build:development"
+              "browserTarget": "springangular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "projetprd-frontend:build"
+            "browserTarget": "springangular:build"
           }
         },
         "test": {
@@ -94,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
