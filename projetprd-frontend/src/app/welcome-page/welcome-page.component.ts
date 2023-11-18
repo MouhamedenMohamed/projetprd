@@ -49,7 +49,7 @@ export class WelcomePageComponent {
         console.log(user);
         localStorage.setItem('email', this.username);
         localStorage.setItem('password', this.password);
-        this.router.navigate(['/Employee']);
+        // this.router.navigate(['/Employee']);
       },
       (error) => {
         console.log(this.username);

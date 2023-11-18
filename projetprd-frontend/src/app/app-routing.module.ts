@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeeComponent } from './employee/employee.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -10,7 +9,6 @@ import { PreviewComponent } from './preview/preview.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'Employee', component: EmployeeComponent },
   { path: 'Signup', component: SignupComponent },
   { path: 'login', component: WelcomePageComponent },
   { path: 'Formulaire', component: FormulaireComponent },
