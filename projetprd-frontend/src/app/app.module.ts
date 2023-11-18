@@ -4,23 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormulaireComponent } from './formulaire/formulaire.component';
+import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 
-import { SignupComponent } from './signup/signup.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { FormComponent } from './form/form.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PreviewComponent } from './preview/preview.component';
-import { HeaderComponent } from './header/header.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { FormComponent } from './components/form/form.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PreviewComponent } from './components/preview/preview.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormulaireComponent,
     LoginComponent,
+    FormulaireComponent,
     SignupComponent,
      WelcomePageComponent,
      FormComponent,

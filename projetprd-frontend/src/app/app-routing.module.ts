@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { FormulaireComponent } from './formulaire/formulaire.component';
-import { FormComponent } from './form/form.component';
-import { PreviewComponent } from './preview/preview.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { FormulaireComponent } from './components/formulaire/formulaire.component';
+import { PreviewComponent } from './components/preview/preview.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },

@@ -1,7 +1,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../employee.service';
+import { EmployeeService } from '../../employee.service';
 import { Router } from '@angular/router';
 import {
   FormBuilder,
@@ -10,7 +10,7 @@ import {
   FormGroup,
   FormControl,
 } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-form',
