@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="folders")
-public class Folder {
+public class Folder extends Document{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

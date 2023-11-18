@@ -34,6 +34,12 @@ public class FolderController {
 	public String getFullChemin(@PathVariable Long id) {
 	   return folderService.getFullChemin(id);
 	}
+
+@GetMapping("/parent/{id}")
+public  List<Document> getFoldersAndFilesByParentId(@PathVariable Long id){
+        return folderService.getFoldersAndFilesByParentId(id);
+    }
+
     
     @GetMapping("/{id}")
     public ResponseEntity<Folder> getfolder(@PathVariable Long id) {

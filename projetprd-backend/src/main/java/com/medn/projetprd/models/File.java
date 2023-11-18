@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="files")
-public class File {
+public class File extends Document{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,10 @@
 package com.medn.projetprd.services;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Stack;
+import java.util.*;
 
+import com.medn.projetprd.models.Document;
+import com.medn.projetprd.models.File;
+import com.medn.projetprd.repositories.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class FolderService {
 	@Autowired
     private FolderRepository folderRepository; // Ensure that you inject your repository correctly
+    @Autowired
+    private FileRepository fileRepository; // Ensure that you inject your repository correctly
 
     // Get a folder by its ID
     public Folder getFolderById(Long folderId) {
@@ -79,5 +82,17 @@ public class FolderService {
 
 //	    System.out.println(reversedPath.toString());
         return reversedPath.toString();
+    }
+
+
+
+    public List<Document> getFoldersAndFilesByParentId(Long parentId) {
+        List<Document> documents =new ArrayList<>();;
+        List<Folder> folders = folderRepository.findAllByParentFolderIdCustomQuery(parentId);
+        List<File> files = fileRepository.findAllByParentFolderIdCustomQuery(parentId);
+
+        documents.addAll(folders);
+        documents.addAll(files);
+        return documents;
     }
 }
