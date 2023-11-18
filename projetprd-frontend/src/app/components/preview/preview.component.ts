@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FolderService } from 'src/app/services/folder.service';
 // import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 @Component({
   selector: 'app-preview',
@@ -6,25 +8,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./preview.component.css']
 })
 export class PreviewComponent {
+  [x: string]: any;
 
 
-  folders: any[] = [
-    {
-        "id": 4,
-        "folderName": "name",
-        "parentFolderid": 3
+  folders: any[] = [];
+  folderId: number =1;
+
+constructor( private folderService: FolderService,
+  private route: ActivatedRoute,
+  private router :Router) {}
+
+ngOnInit(): void {
+  this.route.params.subscribe(params => {
+    this.folderId = params['id'];
+    console.log("id === ",this.folderId);
+    this.loadFolders(this.folderId);
+  });
+}
+
+loadFolders(id:number): void {
+  
+  this.folderService.getFolders(id).subscribe(
+    (data) => {
+      this.folders = data;
+      
     },
-    {
-        "id": 1,
-        "fileName": "MEDEN_File_1",
-        "parentFolderid": 3
-    },
-    {
-        "id": 2,
-        "fileName": "MEDEN_File_1",
-        "parentFolderid": 3
+    (error) => {
+      console.error('Error fetching folders from the backend:', error);
     }
-]
+  );
+}
 
 
 
@@ -36,8 +49,10 @@ export class PreviewComponent {
 
 
   toggleSubfolders(folderId: string): void {
-    // Implement your toggle subfolders logic using the folderId
-    console.log(`Toggling subfolders for folder with id: ${folderId}`);
-    // Add your toggle subfolders logic here
+    this.router.navigate(['/preview', folderId]);
+  }
+
+  isFolder(item: any): boolean {
+    return item.folder;
   }
 }

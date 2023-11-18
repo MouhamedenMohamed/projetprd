@@ -9,20 +9,36 @@
 
         
         <div class="col-md-8">
-            <div class="p-2">
-              <h3>Folder Structure</h3>
-              <ul class="list-group">
-                <li *ngFor="let folder of folders" class="list-group-item">
-                  <button class="btn btn-primary btn-sm float-right" (click)="downloadFolder(folder.id)">Telecharger</button>
-                  <a (click)="toggleSubfolders(folder.id)">{{ folder.name }}</a>
-                  <ul id="{{ folder.id }}" class="list-group collapse">
-                    <li *ngFor="let subfolder of folder.subfolders" class="list-group-item">
-                      {{ subfolder.name }}
-                    </li>
+          <div class="p-2">
+            <h3>Folder Structure</h3>
+            <ul class="list-group">
+              <ng-container *ngFor="let item of folders">
+                <li class="list-group-item">
+                  <button *ngIf="item.fileName; else folderButton" class="btn btn-primary btn-sm float-right" (click)="downloadFolder(item.id)">Download File</button>
+                  <ng-template #folderButton>
+                    <button class="btn btn-primary btn-sm float-right" (click)="downloadFolder(item.id)">Download Folder</button>
+                  </ng-template>
+                  <!-- <a *ngIf="isFolder(item)" (click)="toggleSubfolders(item.id)">{{ item.fileName || item.folderName }}</a> -->
+                  <a *ngIf="isFolder(item)" (click)="toggleSubfolders(item.id)">
+                    {{ item.folderName }}
+                  </a>
+                  <a *ngIf="!isFolder(item)" >
+                    {{ item.fileName }}
+                  </a>
+
+                  
+                  <ul id="{{ item.id }}" class="list-group collapse">
+                    <ng-container *ngIf="item.subitems">
+                      <li *ngFor="let subitem of item.subitems" class="list-group-item">
+                        {{ subitem.fileName || subitem.folderName }}
+                      </li>
+                    </ng-container>
                   </ul>
                 </li>
-              </ul>
-            </div>
+              </ng-container>
+            </ul>
+          </div>
+          
           </div>
 
           

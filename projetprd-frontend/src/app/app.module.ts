@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './components/signup/signup.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { FormComponent } from './components/form/form.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -22,7 +21,6 @@ import { HeaderComponent } from './components/header/header.component';
     SignupComponent,
      WelcomePageComponent,
      FormComponent,
-     NavbarComponent,
      PreviewComponent,
      HeaderComponent,
 

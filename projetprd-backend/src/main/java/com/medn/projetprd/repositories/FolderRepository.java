@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface FolderRepository extends JpaRepository<Folder, Long> {
 
-    @Query("SELECT f FROM Folder f WHERE f.parentFolderid = :parentId")
+    @Query("SELECT f  FROM Folder f WHERE f.parentFolderid = :parentId")
     List<Folder> findAllByParentFolderIdCustomQuery(Long parentId);
 }

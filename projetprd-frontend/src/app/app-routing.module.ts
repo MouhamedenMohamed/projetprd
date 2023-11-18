@@ -10,8 +10,9 @@ const routes: Routes = [
   { path: 'Signup', component: SignupComponent },
   { path: 'login', component: WelcomePageComponent },
   { path: 'Formulaire', component: FormulaireComponent },
-  { path: 'preview', component: PreviewComponent },
+  { path: 'preview/:id', component: PreviewComponent },
   { path: '**', component: WelcomePageComponent },
+
 
 
 ];

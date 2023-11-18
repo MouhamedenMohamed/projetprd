@@ -13,6 +13,7 @@ public class File extends Document{
     private String fileName;
 
     private Long parentFolderid;
+	private boolean isFolder = false;
 
 	public Long getId() {
 		return id;
@@ -38,7 +39,11 @@ public class File extends Document{
 		this.parentFolderid = parentFolderid;
 	}
 
+	public boolean isFolder() {
+		return isFolder;
+	}
 
-    
-    
+	public void setFolder(boolean folder) {
+		isFolder = folder;
+	}
 }

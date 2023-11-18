@@ -9,7 +9,7 @@ public class Folder extends Document{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+    private boolean isFolder = true;
     private String folderName;
 
     
@@ -42,9 +42,11 @@ public class Folder extends Document{
 		this.parentFolderid = parentFolderid;
 	}
 
+	public boolean isFolder() {
+		return isFolder;
+	}
 
-    
-    
-
-    
+	public void setFolder(boolean folder) {
+		isFolder = folder;
+	}
 }

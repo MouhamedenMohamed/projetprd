@@ -37,6 +37,7 @@ public class FolderController {
 
 @GetMapping("/parent/{id}")
 public  List<Document> getFoldersAndFilesByParentId(@PathVariable Long id){
+//        System.out.println(id);
         return folderService.getFoldersAndFilesByParentId(id);
     }
 
