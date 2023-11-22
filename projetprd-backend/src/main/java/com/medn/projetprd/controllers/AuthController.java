@@ -105,30 +105,30 @@ public class AuthController {
 
     if (strRoles == null) {
       Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-          .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+          .orElseThrow(() -> new RuntimeException("Error: Role user is not found in your database ,think to add it ."));
       roles.add(userRole);
     } else {
       strRoles.forEach(role -> {
         switch (role) {
         case "admin":
           Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+              .orElseThrow(() -> new RuntimeException("Error: Role admin is not found in your database ,think to add it ."));
           roles.add(adminRole);
 
           break;
         case "mod":
           Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
-              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+              .orElseThrow(() -> new RuntimeException("Error: Role moderator is not found in your database ,think to add it ."));
           roles.add(modRole);
 
           break;
         case "sudo":
             Role superuserRole = roleRepository.findByName(ERole.ROLE_SUPERUSER)
-                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                .orElseThrow(() -> new RuntimeException("Error: Role superuser is not found in your database ,think to add it ."));
             roles.add(superuserRole);
         default:
           Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-              .orElseThrow(() -> new RuntimeException("Error: Role is not found DEFAULT."));
+              .orElseThrow(() -> new RuntimeException("Error: Role user is not found in your database ,think to add it ."));
           roles.add(userRole);
         }
       });
