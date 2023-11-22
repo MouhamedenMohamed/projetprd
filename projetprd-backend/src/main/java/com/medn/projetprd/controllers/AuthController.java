@@ -140,10 +140,5 @@ public class AuthController {
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
   
- String getUsernamebyUserEmail(String email,Authentication authentication) {
-    UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();    
 
-	return userDetails.getUsername();
-	  
-  }
 }
